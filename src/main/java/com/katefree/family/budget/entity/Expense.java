@@ -11,7 +11,6 @@ import lombok.Data;
  * Expense
  *
  * @author Ekaterina Tsapaeva
- * @link http://jira.taskdata.com/browse/
  * @since 22/03/2018
  */
 @Data

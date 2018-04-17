@@ -1,5 +1,5 @@
 const React = require('react');
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class Expense extends React.Component {
     render() {
@@ -8,6 +8,11 @@ class Expense extends React.Component {
                 <td>{this.props.expense.title}</td>
                 <td>{this.props.expense.amount}</td>
                 <td>{this.props.expense.description}</td>
+                <th>
+                    <nav>
+                        <Link to={`/update/${this.props.id}`}>Update</Link>
+                    </nav>
+                </th>
             </tr>
         )
     }
@@ -15,8 +20,10 @@ class Expense extends React.Component {
 
 export class ExpensesList extends React.Component {
     render() {
-        var expenses = this.props.expenses.map(expense =>
-            <Expense key={expense._links.self.href} expense={expense}/>
+        var expenses = this.props.expenses.map(expense => {
+                let id = /[^/]*$/.exec(expense._links.self.href)[0];
+                return <Expense id={id} expense={expense}/>
+            }
         );
         return (
             <div>

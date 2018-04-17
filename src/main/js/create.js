@@ -1,6 +1,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-// const client = require('./client');
+const client = require('./client');
+
 class CreateForm extends React.Component {
 
     constructor(props) {
@@ -20,18 +21,19 @@ class CreateForm extends React.Component {
             method: 'POST',
             body: JSON.stringify(newExpense),
             headers: {'content-type': 'application/json'}
-        }).then(() => alert('Success!'));
-
-        window.location = "#";
+        }).then(() => {
+                alert('Success!');
+                //todo spa?
+                window.location = "http://localhost:8080";
+            }
+        )
     }
 
 
     render() {
-        alert("render add");
         console.log("render add");
         return (
             <div>
-                <a href="#create" onClick={this.handleSubmit.bind(this)}>Create</a>
                 <div id="create">
 
                     <form>

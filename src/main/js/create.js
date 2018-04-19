@@ -22,9 +22,7 @@ class CreateForm extends React.Component {
             body: JSON.stringify(newExpense),
             headers: {'content-type': 'application/json'}
         }).then(() => {
-                alert('Success!');
-                //todo spa?
-                window.location = "http://localhost:8080";
+                this.props.history.push('/');
             }
         )
     }
@@ -37,7 +35,6 @@ class CreateForm extends React.Component {
                 <div id="create">
 
                     <form>
-                        {/*<input>{this.props.expense.title}</input>*/}
                         <label>Title<input type="text" ref='title' className="field"/></label>
                         <label>Amount<input type="number" min={1} ref='amount' className="field"/></label>
                         <label>Discription<input type="text" ref='description' className="field"/></label>

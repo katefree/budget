@@ -7,7 +7,6 @@ class Expense extends React.Component {
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.state = {expense: {}};
     }
 
 
@@ -15,7 +14,6 @@ class Expense extends React.Component {
 
         return (
             <div>
-                {/*<a href="#create" onClick={this.handleSubmit.bind(this)}>Create</a>*/}
                 <div id="update">
 
                     <form>
@@ -25,7 +23,7 @@ class Expense extends React.Component {
                         <label>Amount<input type="number" min={1} name='amount' ref='amount' className="field"
                                             value={this.props.expense.amount}
                                             onChange={this.onChange.bind(this)}/></label>
-                        <label>Discription<input type="text" name='description' ref="description"  className="field"
+                        <label>Discription<input type="text" name='description' ref="description" className="field"
                                                  value={this.props.expense.description}
                                                  onChange={this.onChange.bind(this)}/></label>
                         <button onClick={this.handleSubmit}>Update</button>
@@ -54,7 +52,7 @@ class Expense extends React.Component {
             body: JSON.stringify(updatedExpense),
             headers: {'content-type': 'application/json'}
         }).then(() => {
-                window.location = "http://localhost:8080";
+                this.props.history.push('/');
             }
         )
     }
@@ -66,7 +64,6 @@ class UpdateForm extends React.Component {
 
     constructor(props) {
         super(props);
-        // this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {expense: {}};
     }
 
@@ -85,13 +82,11 @@ class UpdateForm extends React.Component {
     }
 
 
-
-
     render() {
         console.log("render update");
 
         return (
-            <div><Expense expense={this.state.expense} id={this.props.match.params.ref}/>
+            <div><Expense expense={this.state.expense} id={this.props.match.params.ref} history={this.props.history}/>
             </div>
         )
 

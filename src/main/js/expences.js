@@ -35,7 +35,8 @@ class Expense extends React.Component {
             method: 'DELETE',
             headers: {'content-type': 'application/json'}
         }).then(() => {
-                alert("Deleted")
+                alert("Deleted");
+                this.props.history.push('/');
             }
         )
 
@@ -46,7 +47,7 @@ export class ExpensesList extends React.Component {
     render() {
         var expenses = this.props.expenses.map(expense => {
                 let id = /[^/]*$/.exec(expense._links.self.href)[0];
-                return <Expense id={id} expense={expense}/>
+                return <Expense id={id} expense={expense} history={this.props.history}/>
             }
         );
         return (

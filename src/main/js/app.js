@@ -17,7 +17,7 @@ class App extends React.Component {
 
     render() {
         return (
-            <ExpensesList expenses={this.state.expenses}/>
+            <ExpensesList expenses={this.state.expenses} history={this.props.history}/>
         )
     }
 }

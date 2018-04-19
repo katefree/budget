@@ -31,16 +31,31 @@ class CreateForm extends React.Component {
     render() {
         console.log("render add");
         return (
-            <div>
-                <div id="create">
+            <div id="create">
+                <form>
+                    <fieldset>
 
-                    <form>
-                        <label>Title<input type="text" ref='title' className="field"/></label>
-                        <label>Amount<input type="number" min={1} ref='amount' className="field"/></label>
-                        <label>Discription<input type="text" ref='description' className="field"/></label>
-                        <button onClick={this.handleSubmit}>Create</button>
-                    </form>
-                </div>
+                        <div className="form-group">
+                            <label htmlFor="title" className="col-sm-2 col-form-label">Title</label>
+                            <div>
+
+                                <input type="text" className="form-control" ref='title'
+                                       id='title'/>
+                            </div>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="amount" className="col-sm-2 col-form-label">Amount</label>
+                            <input type="number" min={1} className="form-control" ref='amount'
+                                   id='amount'/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="description" className="col-sm-2 col-form-label">Shop</label>
+                            <input type="text" className="form-control" ref='description'
+                                   id='description'/>
+                        </div>
+                        <button onClick={this.handleSubmit} className="form-control btn btn-primary">Create</button>
+                    </fieldset>
+                </form>
             </div>
         )
 

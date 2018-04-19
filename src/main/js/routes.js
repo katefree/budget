@@ -9,7 +9,9 @@ class BudgetRoutes extends React.Component {
     render() {
         return (
             <BrowserRouter>
-                <div>
+                <div className="container">
+                    <h1>Family Expenses</h1>
+                    <p className="text-primary">All pedals, foil, candies and gift paper go there</p>
                     <Route exact path="/" component={App}/>
                     <Route path="/add" component={CreateForm}/>
                     <Route path="/update/:ref" component={UpdateForm} expense={this.props.expense}/>

@@ -54,13 +54,17 @@ export class ExpensesList extends React.Component {
         return (
             <div>
                 <div>
-                    <table>
-                        <tbody>
+                    <table className="table table-hover">
+                        <thead>
                         <tr>
                             <th>Title</th>
                             <th>Amount</th>
-                            <th>Description!</th>
+                            <th>Shop</th>
+                            <th></th>
+                            <th></th>
                         </tr>
+                        </thead>
+                        <tbody>
                         {expenses}
                         </tbody>
                     </table>

@@ -36,6 +36,7 @@ class Expense extends React.Component {
             headers: {'content-type': 'application/json'}
         }).then(() => {
                 alert("Deleted");
+                this.props.history.push('/add');
                 this.props.history.push('/');
             }
         )

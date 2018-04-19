@@ -2,6 +2,11 @@ const React = require('react');
 import {Link} from 'react-router-dom';
 
 class Expense extends React.Component {
+    constructor() {
+        super();
+        this.deleteExpense.bind(this)
+    }
+
     render() {
         return (
             <tr>
@@ -13,8 +18,27 @@ class Expense extends React.Component {
                         <Link to={`/update/${this.props.id}`}>Update</Link>
                     </nav>
                 </th>
+                <th>
+                    <nav>
+                        <Link to={`/delete/${this.props.id}`} onClick={(e) => {
+                            e.preventDefault();
+                            if (window.confirm('Are you sure you wish to delete this item?')) this.deleteExpense()
+                        }}>Delete</Link>
+                    </nav>
+                </th>
             </tr>
         )
+    }
+
+    deleteExpense() {
+        fetch(`/api/expenses/${this.props.id}`, {
+            method: 'DELETE',
+            headers: {'content-type': 'application/json'}
+        }).then(() => {
+                alert("Deleted")
+            }
+        )
+
     }
 }
 

@@ -17,16 +17,30 @@ class Expense extends React.Component {
                 <div id="update">
 
                     <form>
-                        <label>Title<input type="text" className="field"
-                                           name="title" ref="title" value={this.props.expense.title}
-                                           onChange={this.onChange.bind(this)}/></label>
-                        <label>Amount<input type="number" min={1} name='amount' ref='amount' className="field"
-                                            value={this.props.expense.amount}
-                                            onChange={this.onChange.bind(this)}/></label>
-                        <label>Discription<input type="text" name='description' ref="description" className="field"
-                                                 value={this.props.expense.description}
-                                                 onChange={this.onChange.bind(this)}/></label>
-                        <button onClick={this.handleSubmit}>Update</button>
+                        <fieldset>
+
+                            <div className="form-group">
+                                <label htmlFor="title" className="col-sm-2 col-form-label">Title</label>
+                                <div>
+
+                                    <input type="text" className="form-control" ref='title'
+                                           name="title" id='title'  value={this.props.expense.title} onChange={this.onChange.bind(this)}/>
+                                </div>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="amount" className="col-sm-2 col-form-label">Amount</label>
+                                <input type="number" min={1} className="form-control" name='amount' ref='amount'
+                                       id='amount' value={this.props.expense.amount}
+                                       onChange={this.onChange.bind(this)}/>
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="description" className="col-sm-2 col-form-label">Shop</label>
+                                <input type="text" name='description' className="form-control" ref='description'
+                                       id='description' value={this.props.expense.description}
+                                       onChange={this.onChange.bind(this)}/>
+                            </div>
+                            <button onClick={this.handleSubmit} className="form-control btn btn-primary">Create</button>
+                        </fieldset>
                     </form>
                 </div>
             </div>
